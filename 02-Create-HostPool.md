@@ -10,7 +10,7 @@ A Host Pool is a collection of Azure virtual machines that register to Windows V
 
    ![](media/jvm1.png)
 
-2. To get lab environment details, click on the **Lab Environment** tab located just next to the *Lab Guide* tab. 
+2. To get lab environment details, click on the **Lab Environment** tab located next to the *Lab Guide* tab. 
 
    ![](media/jvm.png)
 
