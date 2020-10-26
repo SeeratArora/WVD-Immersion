@@ -14,7 +14,7 @@ A Host Pool is a collection of Azure virtual machines that register to Windows V
 
    ![](media/jvm.png)
 
-> **Note:** You will see Unique ID value in the **Lab Environment** tab, please use it wherever you are asked to use Unique ID in the lab guide. This is a unique number that is associated with each lab deployment. 
+> **Note:** You will see **Unique ID** value in the **Lab Environment** tab, please use that value wherever you are asked to use Unique ID in the lab guide. This is a unique number that is associated with each lab deployment. 
 
 
 ### **Task 1: Log in to Azure Portal**
