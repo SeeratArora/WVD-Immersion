@@ -3,10 +3,25 @@
  
 A Host Pool is a collection of Azure virtual machines that register to Windows Virtual Desktop as session hosts when you run the Windows Virtual Desktop agent. All session host virtual machines in a host pool should be sourced from the same image for a consistent user experience. To start with, we will login to the Azure portal. 
  
- 
+
+### Getting Started with Lab
+
+1. Once you launch the lab, a virtual machine (JumpVM) on the left and lab guide on the right will get loaded in your browser. Use this virtual machine throughout the workshop to perform the lab.
+
+   ![](media/jvm1.png)
+
+2. To get lab environment details, click on the **Lab Environment** tab located just next to *Lab Guide*. 
+
+   ![](media/jvm.png)
+
+> **Note:** You will see Unique ID value in the **Lab Environment** tab, please use it wherever you are asked to use Unique ID in the lab guide. This is a unique number that is associated with each lab deployment. 
+
+
 ### **Task 1: Log in to Azure Portal**
 
-1. Open **Azure Portal** (https://portal.azure.com) in your browser. 
+1. In the JumpVM, double click on the Azure portal shortcut on the desktop.
+
+   ![azure portal.](media/jvm2.png)  
 
 2. Login to Azure with the username **<inject key="AzureAdUserEmail" />** and click on **Next**.
 
@@ -23,7 +38,18 @@ A Host Pool is a collection of Azure virtual machines that register to Windows V
 > **Note:** If there's another popup entitled **Welcome to Microsoft Azure** with buttons for **Start Tour** and **Maybe Later** - Choose **Maybe Later**.
 >
 >    ![](media/wvd4.png) 
- 
+
+4. Now in the Azure portal, click on **Resource Groups** present under *Navigate*.
+
+   ![](media/jvm3.png)
+
+5. You will see a list of resource groups as show in the image below. Click on **WVD-RG** to open it.
+
+   ![](media/jvm4.png)
+   
+> **Note:** You will be using ***WVD-RG*** throughout the lab. Other two resource groups listed in the portal are not to be used in the lab.
+
+
 ### **Task 2: Create Host Pool**
 
 In this exercise, we will create a Host Pool named *WVD-HP-01* of pooled type, then add two session hosts (virtual machines) i.e. *WVD-HP01-SH-0* and *WVD-HP01-SH-1*  and register the default desktop application group from this hostpool to a new workspace named *WVD-WS-01*.
