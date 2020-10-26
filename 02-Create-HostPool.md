@@ -19,7 +19,7 @@ A Host Pool is a collection of Azure virtual machines that register to Windows V
 
 ### **Task 1: Log in to Azure Portal**
 
-1. In the JumpVM, double click on the Azure portal shortcut on the desktop.
+1. In the JumpVM, double click on the **Azure portal shortcut** on the desktop.
 
    ![azure portal.](media/jvm2.png)  
 
