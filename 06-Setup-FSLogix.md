@@ -20,7 +20,7 @@ In the following task, we will be creating a storage account with a file share w
    
    - Resource Group: *Select **WVD-RG** from the drop down*. 
    
-   - Storage account name: **storageaccount{unique-id}**, *Go to Lab Environment tab, copy the Unique ID and replace it with* ***{unique-id}*** *in* ***storageaccount{unique-id}***; *for example:* ***storageaacount204756***.
+   - Storage account name: **storageaccount{unique-id}** (*Go to Lab Environment tab, copy the Unique ID and replace it with* ***{unique-id}*** *in* ***storageaccount{unique-id}***; *for example:* ***storageaacount204756***)
    
    - Location: **East US**, *this should be same as the location of your resource group*.  
    
