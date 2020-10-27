@@ -212,7 +212,7 @@ The UI form offers the following actions:
 
 ## **Task 5: Create a managed image from the Master Image VM**
 
-1. In Azure portal search for *virtual machine* and click on it.
+1. Navigate to Azure portal in the JumpVM, search for *virtual machine* and click on **Virtual Machines** to open it.
 
    ![ws name.](media/e26.png)
 
@@ -247,7 +247,7 @@ The UI form offers the following actions:
 
 ## **Task 6: Provision a Host Pool with a custom image**
 
-1. In azure portal Search for *Windows Virtual Desktop* and select **Windows Virtual Desktop** from suggestions.
+1. In azure portal search for *Windows Virtual Desktop* and select **Windows Virtual Desktop** from suggestions.
 
    ![ws name.](media/e33.png)
 
@@ -356,11 +356,11 @@ The UI form offers the following actions:
 
 ## **Task 8: Connect to WVD with the web client**
 
-1. In your web browser, navigate to the URL below. 
+1. In the JumpVM, open new browser and navigate to the URL below. 
 
    `https://rdweb.wvd.microsoft.com/arm/webclient`
 
-> **Note:** In case you are loggen in with WVDUser01, then logout and login back using following credentials:
+> **Note:** In case you are logged in with WVDUser01, then logout and login back using following credentials:
 > - Username: **<inject key="AzureAdUserEmail" />**
 > - Password: **<inject key="AzureAdUserPassword" />**
 
