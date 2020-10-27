@@ -356,7 +356,7 @@ The UI form offers the following actions:
 
 ## **Task 8: Connect to WVD with the web client**
 
-1. In the JumpVM, open new browser and navigate to the URL below. 
+1. In the JumpVM, open new browser and navigate to the URL given below. 
 
    `https://rdweb.wvd.microsoft.com/arm/webclient`
 
