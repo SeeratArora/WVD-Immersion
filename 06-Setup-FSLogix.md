@@ -296,7 +296,7 @@ In this task we will install and configure FSLogix in the **WVD-HP01-SH-0** sess
   
 14. Now search for *Windows virtual desktop* in the search bar and select **Windows Virtual Desktop** from the suggestions.
 
-    ![ws name.](media/a109.png)
+    ![ws name.](media/w1.png)
    
    
 15. Click on **Users**, then in the search bar paste your username **<inject key="AzureAdUserEmail" />** and then click on your user.
