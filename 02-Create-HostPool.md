@@ -174,7 +174,7 @@ In this exercise, we will create a Host Pool named *WVD-HP-01* of pooled type, t
 
     ![ws name.](media/ch4.png)
 
-> **Note:** The deployment will take about 30 minutes to succeed.
+> **Note:** The deployment will take about 15 minutes to succeed.
 
 12. Once the deployment is succeeded, open notifications and click on **Go to Resource**.  
 
