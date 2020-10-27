@@ -176,7 +176,7 @@ The UI form offers the following actions:
    - **Run System Clean Up (CleanMgr.exe)**
    - At last, click on **Execute**.
 
-   ![ws name.](media/im9.png)
+   ![ws name.](media/jvm13.png)
 
 > **Note:** This script takes about 15 minutes time to run, so be patient as it may seem like nothing is happening for a while, and then applications will begin to install. It will begin configuring the image. **DO NOT close any of the remaining windows that appear until the script has finished execution**. Doing so will interrupt the process and will require you to start over.
 
