@@ -132,7 +132,7 @@ Here, we will use Azure Cloud Shell to run a script that will change the passwor
 While creating WVD-HP-01 host pool, we selected load balancing method as *Breadth-first*.  Now we are going to log in to Desktop App created on WVD-HP-01 with both users simultaneously and see the user distribution.
 
 
-1. Paste this link ```aka.ms/wvdarmweb``` in your browser in the JumpVM and enter your **credentials** to login. 
+1. Paste this link ```aka.ms/wvdarmweb``` in your browser in the **JumpVM** and enter your **credentials** to login. 
 
    - Username: *Paste username* **WVDUser01** *which you copied earlier and then click on **Next**.*
    
@@ -164,7 +164,7 @@ While creating WVD-HP-01 host pool, we selected load balancing method as *Breadt
 
    ![ws name.](media/lb57.png)
    
-7. Navigate to your local machine, go to **Start** and search for **Remote desktop** and open the application with the exact icon as shown below.
+7. Navigate to your **Local Machine**, go to **Start** and search for **Remote desktop** and open the application with the exact icon as shown below.
 
    ![ws name.](media/137.png)
    
@@ -203,7 +203,7 @@ While creating WVD-HP-01 host pool, we selected load balancing method as *Breadt
    ![ws name.](media/lb55.png) 
 
 
-14. Return to the Azure portal on your browser and search for the host pool and click on it.
+14. Return to the Azure portal in your browser inside the **JumpVM**, search for *host pools* and click on **Host pool** from the suggestion to open it.
 
    ![ws name.](media/lb38.png)
    
@@ -253,7 +253,7 @@ Here we will change the load balancing method of *WVD-HP-01* host pool to *Depth
 
    ![ws name.](media/lb26.png)
    
-3. Now paste this link ```aka.ms/wvdarmweb``` in your browser and enter your **credentials** to login. 
+3. Now paste this link ```aka.ms/wvdarmweb``` in your browser inside the **JumpVM**, and enter your **credentials** to login. 
 
    - Username: *Paste username of* **WVDUser01** *which you copied earlier(for example: **WVDUser01@azurehol1055.onmicrosoft.com**)* and then click on **Next**.
    
@@ -286,7 +286,7 @@ Here we will change the load balancing method of *WVD-HP-01* host pool to *Depth
    ![ws name.](media/lb57.png)
    
    
-8. In your local machine, go to **Start** and search for **Remote desktop** and open the application.
+8. In your **Local Machine**, go to **Start** and search for **Remote desktop** and open the application.
 
    ![ws name.](media/137.png)
    
@@ -308,7 +308,7 @@ Here we will change the load balancing method of *WVD-HP-01* host pool to *Depth
    ![ws name.](media/lb55.png) 
 
 
-12. Return back to the Azure portal, navigate to **WVD-HP-01** host pool and open **Session Hosts** present under *Manage* blade.
+12. Return back to the Azure portal in the **JumpVM**, navigate to **WVD-HP-01** host pool and open **Session Hosts** present under *Manage* blade.
 
    ![ws name.](media/lb24.png)
    
