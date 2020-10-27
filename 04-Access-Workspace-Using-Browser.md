@@ -48,6 +48,11 @@ In this exercise, we will access the Desktop and RemoteApps assigned to us in th
 
    ![ws name.](media/ch6.png)
 
+> **Note:** If you get a popup saying *Move Text in and out of Remote Desktop*, click on the ***Don't show again*** checkbox and then click on ***Got it*** button.
+>
+>   ![ws name.](media/jvm6.png)
+
+
 8. Enter password **<inject key="AzureAdUserPassword" />** and click on **Sign in**.
 
    ![ws name.](media/ch7.png)
