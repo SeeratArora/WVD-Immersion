@@ -4,7 +4,7 @@ In this exercise, we are going to walk through the process of creating a master 
 
 ## **Task 1: Create a new Virtual Machine in Azure**
 
-1. On the Azure portal home page, click on **Create a resource** button.
+1. In the **JumpVM**, go to Azure portal home page and click on **Create a resource** button.
 
    ![ws name.](media/e1.png)
 
@@ -84,7 +84,7 @@ In this exercise, we are going to walk through the process of creating a master 
 
 Despite the Azure support teams best efforts, the Marketplace images are not always up to date. The best and most secure practice is to keep your master image up to date.
 
-1. In the virtual machine, click on **Start** button and open **Settings**.
+1. Open **WVDVMWin10** virtual machine that you created in the Task 1. Click on **Start** button and then open **Settings**.
 
    ![ws name.](media/e11.png)
 
@@ -119,7 +119,7 @@ The UI form offers the following actions:
 ### **Running the script**
 
 
-1. Reconnect to the virtual machine which you restarted in the previous task. Inside the virtual machine click on **Start** and open **Microsoft edge browser**.
+1. Reconnect to **WVDVMWin10** virtual machine that you created in the Task 1. Inside the virtual machine click on **Start** and open **Microsoft edge browser**.
 
    ![ws name.](media/e14.png)
 
@@ -192,7 +192,7 @@ The UI form offers the following actions:
 
 # **Task 4: Run Sysprep**
 
-1. In taskbar search for *command prompt* and select **Run as administrator**.
+1. In **WVDVMWin10** virtual machine, search for *command prompt* and select **Run as administrator**.
 
    ![ws name.](media/e25.png)
 
@@ -212,7 +212,7 @@ The UI form offers the following actions:
 
 ## **Task 5: Create a managed image from the Master Image VM**
 
-1. Navigate to Azure portal in the JumpVM, search for *virtual machine* and click on **Virtual Machines** to open it.
+1. Navigate to Azure portal in the **JumpVM**, search for *virtual machine* and click on **Virtual Machines** to open it.
 
    ![ws name.](media/e26.png)
 
@@ -356,7 +356,7 @@ The UI form offers the following actions:
 
 ## **Task 8: Connect to WVD with the web client**
 
-1. In the JumpVM, open new browser and navigate to the URL given below. 
+1. In the **JumpVM**, open new browser and navigate to the URL given below. 
 
    `https://rdweb.wvd.microsoft.com/arm/webclient`
 
