@@ -2,9 +2,12 @@
 
 In this exercise, we will access the Desktop and RemoteApps assigned to us in the previous exercise using WVD Desktop client.
 
+> **Note:** **You have to perform this exercise in your local system(i.e., personal systems). Do not perform this exercise within the JumpVM.**
+
+
 ## **Task 1: Access the Published Applications**
 
-1. Open the following URL in a new browser tab.
+1. Open a browser in your **Local Systems** (not within the JumpVM), copy and paste the following URL in that browser tab.
 
    ```https://docs.microsoft.com/en-us/azure/virtual-desktop/connect-windows-7-10#install-the-windows-desktop-client```
 
