@@ -9,6 +9,8 @@ In this exercise, we will access the Desktop and RemoteApps assigned to us in th
 
    ```aka.ms/wvdarmweb``` 
 
+> **Note:** If you are already logged in through your user, then jump to step 3 else continue with the next step i.e., Step 2.
+
 2. Now to login, enter the lab credentials as mentioned below:
 
    - Username: *Paste your username* **<inject key="AzureAdUserEmail" />** *and then click on **Next**.*
