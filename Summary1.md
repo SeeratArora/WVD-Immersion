@@ -16,3 +16,5 @@
 - Publishing applications using the *Start menu* in the RemoteApp type application groups.
 
 - Assigning users to the application groups and workspaces to allow/restrict users from using certain applications.
+
+- Accessing Windows Virtual Desktop and published applications through Browser.
