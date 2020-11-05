@@ -22,6 +22,10 @@
       {
         "RawFilePath": "https://raw.githubusercontent.com/SeeratArora/WVD-Immersion/main/04-Access-Workspace-Using-Browser.md",
         "Order": 5
+      },
+	    {
+        "RawFilePath": "https://raw.githubusercontent.com/SeeratArora/WVD-Immersion/main/Summary1.md",
+        "Order": 6
       }
     ]
   }
