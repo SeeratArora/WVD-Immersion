@@ -114,6 +114,6 @@ In this exercise, we will access the Desktop and RemoteApps assigned to us in th
 
 10. Click on **Refresh** button and make sure *No results* is displayed under Host pool.
 
-   ![ws name.](media/jvm9.png)
+   ![ws name.](media/jvm10.png)
 
 11. Click on the **Next** button present in the bottom-right corner of this lab guide. 
