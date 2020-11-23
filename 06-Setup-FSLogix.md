@@ -6,9 +6,9 @@ The Windows Virtual Desktop service recommends FSLogix profile containers as a u
 
 In the following task, we will be creating a storage account with a file share which will be used to store user profiles for FSlogix.
 
-1. Navigate to Azure portal, search for *storage* and select **storage account** from the suggestions.
+1. Navigate to Azure portal, search for *storage accounts* in the search bar and select **Storage accounts** from the suggestions.
 
-   ![ws name.](media/a55.png)
+   ![ws name.](media/up10.png)
    
 2. Click on **+ Add** to create a new storage account.
 
@@ -20,7 +20,9 @@ In the following task, we will be creating a storage account with a file share w
    
    - Resource Group: *Select **WVD-RG** from the drop down*. 
    
-   - Storage account name: **storageaccount{unique-id}** (*Go to Lab Environment tab, copy the Unique ID and replace it with* ***{unique-id}*** *in* ***storageaccount{unique-id}***; *for example:* ***storageaacount204756***)
+   - Storage account name: *Go to Lab Environment tab, copy the* **Storage Account Name** *and paste it here in Storage account name box.*   
+   
+   ![ws name.](media/up1.png)
    
    - Location: **East US**, *this should be same as the location of your resource group*.  
    
@@ -32,7 +34,7 @@ In the following task, we will be creating a storage account with a file share w
    
    - Then click on **Next: Networking**
    
-   ![ws name.](media/ch20.png)
+   ![ws name.](media/up2.png)
    
 4. Under *Networking* tab use following configuration.
     
@@ -54,7 +56,7 @@ In the following task, we will be creating a storage account with a file share w
      
 5. Click on **Create**.
 
-   ![ws name.](media/a58.png)
+   ![ws name.](media/up3.png)
 
 6. After deployment completes click on the notification icon on your azure portal, then click on **Go to resource**.
 
@@ -62,7 +64,7 @@ In the following task, we will be creating a storage account with a file share w
    
 7. In the storage account, click on **Configuration** present under **Settings** blade. Then scroll down and find the option **Active Directory Domain Services (Azure AD DS)**. Select **Enabled** for it.
 
-   ![ws name.](media/fs2.png)
+   ![ws name.](media/up4.png)
     
 > **Note:** Setting this property implicitly ***domain joins*** the storage account with the associated Azure AD DS deployment. Azure AD DS authentication over SMB is then enabled for all new and existing file shares in the storage account.
     
@@ -73,7 +75,7 @@ In the following task, we will be creating a storage account with a file share w
  
 9. Now click on **Overview** to return back to storage account page, then click on **File shares**.
 
-   ![ws name.](media/a62.png)
+   ![ws name.](media/up9.png)
  
 10. Click on **+ File share**.
 
@@ -123,9 +125,9 @@ In this task we will give *Storage File Data SMB Share Contributor* permissions 
 
 In this task we will install and configure FSLogix in the **WVD-HP01-SH-0** session host using a Powershell script.
 
-1. In your Azure portal search for *Virtual* in the search bar and click on **Virtual Machines** from the suggestions.
+1. In your Azure portal search for *Virtual machines* in the search bar and click on **Virtual Machines** from the suggestions.
 
-   ![ws name.](media/a67.png)
+   ![ws name.](media/up11.png)
       
    
 2. Click on **WVD-HP01-SH-0**.
@@ -147,49 +149,60 @@ In this task we will install and configure FSLogix in the **WVD-HP01-SH-0** sess
    ![ws name.](media/a69.png)
    
       
+
 6. **Copy** the script given below and paste it by pressing **Ctrl + V** in the Powershell window. Do not run the script right away.
+
 
     ```
     #Variables
-    $storageAccountName = "{NameofStorageAccount}" 
+   $storageAccountName = "NameofStorageAccount" 
 
-    #Create Directories
-    $LabFilesDirectory = "C:\LabFiles"
-    New-Item -Path $LabFilesDirectory -ItemType Directory |Out-Null
-    New-Item -Path "$LabFilesDirectory\FSLogix" -ItemType Directory |Out-Null
+   #Create Directories
+   $LabFilesDirectory = "C:\LabFiles"
+
+   if(!(Test-path -Path "$LabFilesDirectory")){
+   New-Item -Path $LabFilesDirectory -ItemType Directory |Out-Null
+   }
+   if(!(Test-path -Path "$LabFilesDirectory\FSLogix")){
+   New-Item -Path "$LabFilesDirectory\FSLogix" -ItemType Directory |Out-Null
+   }
 
     #Download FSLogix Installation bundle
-    Invoke-WebRequest -Uri "https://experienceazure.blob.core.windows.net/templates/wvd/FSLogix_Apps_Installation.zip" -OutFile "$LabFilesDirectory\FSLogix_Apps_Installation.zip"
+
+    if(!(Test-path -Path "$LabFilesDirectory\FSLogix_Apps_Installation.zip")){
+          Invoke-WebRequest -Uri "https://experienceazure.blob.core.windows.net/templates/wvd/FSLogix_Apps_Installation.zip" -OutFile     "$LabFilesDirectory\FSLogix_Apps_Installation.zip"
 
     #Extract the downloaded FSLogix bundle
     function Expand-ZIPFile($file, $destination){
-    $shell = new-object -com shell.application
-    $zip = $shell.NameSpace($file)
-    foreach($item in $zip.items()){
-     $shell.Namespace($destination).copyhere($item)
-    }
+        $shell = new-object -com shell.application
+        $zip = $shell.NameSpace($file)
+        foreach($item in $zip.items()){
+        $shell.Namespace($destination).copyhere($item)
+        }
     }
 
     Expand-ZIPFile -File "$LabFilesDirectory\FSLogix_Apps_Installation.zip" -Destination "$LabFilesDirectory\FSLogix"
 
-    #Install FSLogix
-    $pathvargs = {C:\LabFiles\FSLogix\x64\Release\FSLogixAppsSetup.exe /quiet /install }
-    Invoke-Command -ScriptBlock $pathvargs
+   }
+      #Install FSLogix
+      if(!(Get-WmiObject -Class Win32_Product | where vendor -eq "FSLogix, Inc." | select Name, Version)){
+          $pathvargs = {C:\LabFiles\FSLogix\x64\Release\FSLogixAppsSetup.exe /quiet /install }
+          Invoke-Command -ScriptBlock $pathvargs
+      }
+      #Create registry key 'Profiles' under 'HKLM:\SOFTWARE\FSLogix'
+      $registryPath = "HKLM:\SOFTWARE\FSLogix\Profiles"
+      if(!(Test-path $registryPath)){
+          New-Item -Path $registryPath -Force | Out-Null
+      }
 
-    #Create registry key 'Profiles' under 'HKLM:\SOFTWARE\FSLogix'
-    $registryPath = "HKLM:\SOFTWARE\FSLogix\Profiles"
-    if(!(Test-path $registryPath)){
-    New-Item -Path $registryPath -Force | Out-Null
-    }
+      #Add registry values to enable FSLogix profiles, add VHD Locations, Delete local profile and FlipFlop Directory name
+      New-ItemProperty -Path $registryPath -Name "VHDLocations" -Value "\\$storageAccountName.file.core.windows.net\userprofile" -PropertyType String -Force | Out-Null
+      New-ItemProperty -Path $registryPath -Name "Enabled" -Value 1 -PropertyType DWord -Force | Out-Null
+      New-ItemProperty -Path $registryPath -Name "DeleteLocalProfileWhenVHDShouldApply" -Value 1 -PropertyType DWord -Force | Out-Null
+      New-ItemProperty -Path $registryPath -Name "FlipFlopProfileDirectoryName" -Value 1 -PropertyType DWord -Force | Out-Null
 
-    #Add registry values to enable FSLogix profiles, add VHD Locations, Delete local profile and FlipFlop Directory name
-    New-ItemProperty -Path $registryPath -Name "VHDLocations" -Value "\\$storageAccountName.file.core.windows.net\userprofile" -PropertyType String -Force | Out-Null
-    New-ItemProperty -Path $registryPath -Name "Enabled" -Value 1 -PropertyType DWord -Force | Out-Null
-    New-ItemProperty -Path $registryPath -Name "DeleteLocalProfileWhenVHDShouldApply" -Value 1 -PropertyType DWord -Force | Out-Null
-    New-ItemProperty -Path $registryPath -Name "FlipFlopProfileDirectoryName" -Value 1 -PropertyType DWord -Force | Out-Null
-
-    #Display script completion in console
-    Write-Host "Script Executed successfully"
+      #Display script completion in console
+      Write-Host "Script Executed successfully"
     ```
  
    ![ws name.](media/fs11.png)
@@ -204,14 +217,14 @@ In this task we will install and configure FSLogix in the **WVD-HP01-SH-0** sess
  
 
 
-7. In the script, replace **{NameofStorageAccount}** with the actual storage account name you created previosuly in Task 1. Make sure to remove the curly braces, then click on **Run** to execute the script.
+7. Go to **Lab Environment** tab and copy the **Storage Account Name**. In the script, replace **{NameofStorageAccount}** with the name you just copied. Make sure to remove the curly braces, then click on **Run** to execute the script.
 
-   ![ws name.](media/fs12.png)
+   ![ws name.](media/up5.png)
 
 
 8. Wait for some time for the script to execute. Once done, it will show an output saying **Script Executed successfully**.
 
-   ![ws name.](media/fs14.png)
+   ![ws name.](media/up6.png)
    
 > **Note:** It will take around five minutes for the script to execute.
    
@@ -229,47 +242,56 @@ In this task we will install and configure FSLogix in the **WVD-HP01-SH-0** sess
 
     ```
     #Variables
-    $storageAccountName = "{NameofStorageAccount}" 
+    $storageAccountName = "NameofStorageAccount" 
 
     #Create Directories
     $LabFilesDirectory = "C:\LabFiles"
+ 
+    if(!(Test-path -Path "$LabFilesDirectory")){
     New-Item -Path $LabFilesDirectory -ItemType Directory |Out-Null
+    }
+    if(!(Test-path -Path "$LabFilesDirectory\FSLogix")){
     New-Item -Path "$LabFilesDirectory\FSLogix" -ItemType Directory |Out-Null
+    }
 
     #Download FSLogix Installation bundle
-    Invoke-WebRequest -Uri "https://experienceazure.blob.core.windows.net/templates/wvd/FSLogix_Apps_Installation.zip" -OutFile "$LabFilesDirectory\FSLogix_Apps_Installation.zip"
+
+    if(!(Test-path -Path "$LabFilesDirectory\FSLogix_Apps_Installation.zip")){
+          Invoke-WebRequest -Uri "https://experienceazure.blob.core.windows.net/templates/wvd/FSLogix_Apps_Installation.zip" -OutFile     "$LabFilesDirectory\FSLogix_Apps_Installation.zip"
 
     #Extract the downloaded FSLogix bundle
     function Expand-ZIPFile($file, $destination){
-    $shell = new-object -com shell.application
-    $zip = $shell.NameSpace($file)
-    foreach($item in $zip.items()){
-     $shell.Namespace($destination).copyhere($item)
-    }
+        $shell = new-object -com shell.application
+        $zip = $shell.NameSpace($file)
+        foreach($item in $zip.items()){
+        $shell.Namespace($destination).copyhere($item)
+        }
     }
 
     Expand-ZIPFile -File "$LabFilesDirectory\FSLogix_Apps_Installation.zip" -Destination "$LabFilesDirectory\FSLogix"
 
-    #Install FSLogix
-    $pathvargs = {C:\LabFiles\FSLogix\x64\Release\FSLogixAppsSetup.exe /quiet /install }
-    Invoke-Command -ScriptBlock $pathvargs
-
-    #Create registry key 'Profiles' under 'HKLM:\SOFTWARE\FSLogix'
-    $registryPath = "HKLM:\SOFTWARE\FSLogix\Profiles"
-    if(!(Test-path $registryPath)){
-    New-Item -Path $registryPath -Force | Out-Null
     }
+      #Install FSLogix
+      if(!(Get-WmiObject -Class Win32_Product | where vendor -eq "FSLogix, Inc." | select Name, Version)){
+          $pathvargs = {C:\LabFiles\FSLogix\x64\Release\FSLogixAppsSetup.exe /quiet /install }
+          Invoke-Command -ScriptBlock $pathvargs
+      }
+      #Create registry key 'Profiles' under 'HKLM:\SOFTWARE\FSLogix'
+      $registryPath = "HKLM:\SOFTWARE\FSLogix\Profiles"
+      if(!(Test-path $registryPath)){
+          New-Item -Path $registryPath -Force | Out-Null
+      }
 
-    #Add registry values to enable FSLogix profiles, add VHD Locations, Delete local profile and FlipFlop Directory name
-    New-ItemProperty -Path $registryPath -Name "VHDLocations" -Value "\\$storageAccountName.file.core.windows.net\userprofile" -PropertyType String -Force | Out-Null
-    New-ItemProperty -Path $registryPath -Name "Enabled" -Value 1 -PropertyType DWord -Force | Out-Null
-    New-ItemProperty -Path $registryPath -Name "DeleteLocalProfileWhenVHDShouldApply" -Value 1 -PropertyType DWord -Force | Out-Null
-    New-ItemProperty -Path $registryPath -Name "FlipFlopProfileDirectoryName" -Value 1 -PropertyType DWord -Force | Out-Null
+      #Add registry values to enable FSLogix profiles, add VHD Locations, Delete local profile and FlipFlop Directory name
+      New-ItemProperty -Path $registryPath -Name "VHDLocations" -Value "\\$storageAccountName.file.core.windows.net\userprofile" -PropertyType String -Force | Out-Null
+      New-ItemProperty -Path $registryPath -Name "Enabled" -Value 1 -PropertyType DWord -Force | Out-Null
+      New-ItemProperty -Path $registryPath -Name "DeleteLocalProfileWhenVHDShouldApply" -Value 1 -PropertyType DWord -Force | Out-Null
+      New-ItemProperty -Path $registryPath -Name "FlipFlopProfileDirectoryName" -Value 1 -PropertyType DWord -Force | Out-Null
 
-    #Display script completion in console
-    Write-Host "Script Executed successfully"
+      #Display script completion in console
+      Write-Host "Script Executed successfully"
     ```
- 
+
    ![ws name.](media/fs11.png)
    
     
@@ -281,20 +303,21 @@ In this task we will install and configure FSLogix in the **WVD-HP01-SH-0** sess
 > 3) Set the profile container location to the Azure file share location we created.
  
 
-12. In the script, replace **{NameofStorageAccount}** with the actual storage account name you created previosuly in Task 1. Make sure to remove the curly braces, then click on **Run** to execute the script.
+12. Go to **Lab Environment** tab and copy the **Storage Account Name**. In the script, replace **{NameofStorageAccount}** with the name you just copied. Make sure to remove the curly braces, then click on **Run** to execute the script.
 
-   ![ws name.](media/fs12.png)
+   ![ws name.](media/up5.png)
       
  
 13. Wait for some time for the script to execute.  Once done, it will show an output saying **Script Executed successfully**.
 
-   ![ws name.](media/fs14.png)
+   ![ws name.](media/up6.png)
+
    
 > **Note:** It will take around five minutes for the script to execute.
   
 14. Now search for *Windows virtual desktop* in the search bar and select **Windows Virtual Desktop** from the suggestions.
 
-    ![ws name.](media/a109.png)
+    ![ws name.](media/w1.png)
    
    
 15. Click on **Users**, then in the search bar paste your username **<inject key="AzureAdUserEmail" />** and then click on your user.
@@ -322,9 +345,9 @@ In this task we will install and configure FSLogix in the **WVD-HP01-SH-0** sess
 
     ![ws name.](media/w25.png)
    
-19. Click on the **WVD-HP-01-DAG** Desktop to launch it.
+19. Click on the **Default Desktop** Desktop to launch it.
 
-    ![ws name.](media/a75.png)
+    ![ws name.](media/up7.png)
     
 20. Enter your **Credentials** to access the desktop.
 
@@ -347,13 +370,13 @@ In this task we will install and configure FSLogix in the **WVD-HP01-SH-0** sess
 
 In this task, we will be accessing the file share to verify the user profiles stored in *.vhd* format.
 
-1. Return to the Azure Portal and search for *storage account* and click on **Storage Accounts** from the suggestions.
+1. Return to the Azure Portal, search for *storage accounts* in the search bar and click on **Storage Accounts** from the suggestions.
 
-   ![ws name.](media/a55.png)
+   ![ws name.](media/up10.png)
     
 2. Click on the storage account we created in **Task 1 step 3**, then under settings blade click on  **Firewalls and virtual networks**.
 
-   ![ws name.](media/a87.png)
+   ![ws name.](media/up8.png)
    
 3. Under **Allow access from** select **All networks** and click on **save icon**.
 
@@ -363,7 +386,7 @@ In this task, we will be accessing the file share to verify the user profiles st
     
 4. Open the storage account we created earlier, then click on **Overview** and open **Fileshare**.
 
-   ![ws name.](media/a62.png)
+   ![ws name.](media/up9.png)
     
     
 5. Click on the **userprofile** fileshare.
