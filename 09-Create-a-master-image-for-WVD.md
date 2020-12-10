@@ -57,15 +57,15 @@ In this exercise, we are going to walk through the process of creating a master 
 
    ![ws name.](media/jvm21.png)
 
-11. In your local system(i.e. your personal system), search for *Remote Desktop Connection* and select **Remote Desktop Connection** from the suggestions.
+11. In your **Local system**(i.e. your personal system), search for *Remote Desktop Connection* and select **Remote Desktop Connection** from the suggestions.
 
    ![ws name.](media/jvm17.png)
 
-12. On Remote Desktop Connection box, paste the Public IP address against *Computer* block. Then click on **Connect**.
+12. On Remote Desktop Connection box, paste the **Public IP address** against *Computer* block. Then click on **Connect**.
 
    ![ws name.](media/jvm18.png)
 
-13. In *Enter your credentials* box, enter the followinf values:
+13. In *Enter your credentials* box, enter the following values:
 
    - Username: **azuser**
    - Password: **Azure1234567**
