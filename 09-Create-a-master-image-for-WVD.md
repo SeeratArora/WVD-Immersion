@@ -53,28 +53,29 @@ In this exercise, we are going to walk through the process of creating a master 
 
    ![ws name.](media/vmimage1.png)
 
-10. Click on **Connect** and select **RDP** from the dropdown.
+10. On the **Overview** page, copy **Public IP address** of the virtual machine and paste it in a text editor as we will use it in next step.
 
-   ![ws name.](media/e6.png)
+   ![ws name.](media/jvm21.png)
 
-11. Click on **Download RDP file** button.
+11. In your local system(i.e. your personal system), search for *Remote Desktop Connection* and select **Remote Desktop Connection** from the suggestions.
 
-   ![ws name.](media/e7.png)
+   ![ws name.](media/jvm17.png)
 
-12. Open the downloaded RDP file.
+12. On Remote Desktop Connection box, paste the Public IP address against *Computer* block. Then click on **Connect**.
 
-   ![ws name.](media/im6.png)
+   ![ws name.](media/jvm18.png)
 
-13. Now in the RDP client window, click on **Connect** to establish an RDP connection to your virtual machine.
-
-   ![ws name.](media/e9.png)
-
-14. Enter the credentials of your virtual machine given below, and click on **OK**.
+13. In *Enter your credentials* box, enter the followinf values:
 
    - Username: **azuser**
    - Password: **Azure1234567**
-   
-   ![ws name.](media/vmimage3.png)
+   - Click on **OK**
+
+   ![ws name.](media/jvm19.png)
+
+14. On Remote Desktop Connection dialog box, click on **Yes**.
+
+   ![ws name.](media/jvm20.png)
 
 15. The virtual machine will launch and look similar to the screenshot below.
 
