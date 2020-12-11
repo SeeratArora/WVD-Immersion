@@ -167,7 +167,7 @@ While creating WVD-HP-01 host pool, we selected load balancing method as *Breadt
 
    ![ws name.](media/lb57.png)
    
-7. Navigate to your **Local Machine**, go to **Start** and search for **Remote desktop** and open the application with the exact icon as shown below.
+7. Navigate to **Your Own PC/computer/workstation**, go to **Start** and search for **Remote desktop** and open the application with the exact icon as shown below.
 
    ![ws name.](media/137.png)
    
@@ -289,7 +289,7 @@ Here we will change the load balancing method of *WVD-HP-01* host pool to *Depth
    ![ws name.](media/lb57.png)
    
    
-8. In your **Local Machine**, go to **Start** and search for **Remote desktop** and open the application.
+8. In **Your Own PC/computer/workstation**, go to **Start** and search for **Remote desktop** and open the application.
 
    ![ws name.](media/137.png)
    
