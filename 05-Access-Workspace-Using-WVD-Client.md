@@ -2,12 +2,12 @@
 
 In this exercise, we will access the Desktop and RemoteApps assigned to us in the previous exercise using WVD Desktop client.
 
-> **Note:** **You have to perform this exercise in your local system(i.e., personal systems). Do not perform this exercise within the JumpVM.**
+> **Note:** **You have to perform this exercise in **Your Own PC/computer/workstation**. Do not perform this exercise within the JumpVM.**
 
 
 ## **Task 1: Access the Published Applications**
 
-1. Open a browser in your **Local Systems** (not within the JumpVM), copy and paste the following URL in that browser tab.
+1. Open a browser in **Your Own PC/computer/workstation** (not within the JumpVM), copy and paste the following URL in that browser tab.
 
    ```https://docs.microsoft.com/en-us/azure/virtual-desktop/connect-windows-7-10#install-the-windows-desktop-client```
 
@@ -15,7 +15,7 @@ In this exercise, we will access the Desktop and RemoteApps assigned to us in th
 >
 > ```https://docs.microsoft.com/en-us/azure/virtual-desktop/connect-macos```
 
-2. Under *Install the Windows Desktop Client*, click on **Windows 64-bit**. This will download the **WVD Desktop Client** on your local machine.
+2. Under *Install the Windows Desktop Client*, click on **Windows 64-bit**. This will download the **WVD Desktop Client** on **Your Own PC/computer/workstation**.
    
    ![ws name.](media/a48.png)
       
@@ -27,7 +27,7 @@ In this exercise, we will access the Desktop and RemoteApps assigned to us in th
 
    ![ws name.](media/wvd41.png)
 
-6. After installation, in your local machine go to **Start** and search for **Remote desktop** and open the remote desktop application with exact icon as shown below.
+6. After installation, in your PC go to **Start** and search for **Remote desktop** and open the remote desktop application with exact icon as shown below.
 
    ![ws name.](media/137.png)
    
@@ -80,7 +80,7 @@ In this exercise, we will access the Desktop and RemoteApps assigned to us in th
 ## **Task 2: Access the Virtual Desktop**
 
 
-1. In your local machine go to **Start** and search for **Remote desktop** and open the remote desktop application with icon similar to the one shown below.
+1. In **Your Own PC/computer/workstation** go to **Start** and search for **Remote desktop** and open the remote desktop application with icon similar to the one shown below.
 
    ![ws name.](media/51.png)
  
