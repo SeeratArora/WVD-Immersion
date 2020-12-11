@@ -57,7 +57,7 @@ In this exercise, we are going to walk through the process of creating a master 
 
    ![ws name.](media/jvm21.png)
 
-11. In your **Local system**(i.e. your personal system), search for *Remote Desktop Connection* and select **Remote Desktop Connection** from the suggestions.
+11. In **Your Own PC/computer/workstation**, search for *Remote Desktop Connection* and select **Remote Desktop Connection** from the suggestions.
 
    ![ws name.](media/jvm17.png)
 
