@@ -356,7 +356,7 @@ New-Item -Path "$LabFilesDirectory\FSLogix" -ItemType Directory |Out-Null
 
    ![ws name.](media/89.png)
         
-21. The desktop will launch looking similar to the screenshot below, telling ***Please wait for the FSLogix Apps Services***.
+21. The desktop will display looking similar to the screenshot below, showing ***Please wait for the FSLogix Apps Services***.
 
     ![ws name.](media/wiw19.png)
     
