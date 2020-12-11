@@ -108,9 +108,9 @@ In this task we will give *Storage File Data SMB Share Contributor* permissions 
    - Role: **Storage File Data SMB Share Contributor**
    
 > **Note:** There are three Azure built-in roles for granting share-level permissions to users:
-> - ***Storage File Data SMB Share Reader*** allows read access in Azure Storage file shares over SMB.
-> - ***Storage File Data SMB Share Contributor*** allows read, write, and delete access in Azure Storage file shares over SMB.
-> - ***Storage File Data SMB Share Elevated Contributor*** allows read, write, delete, and modify Windows ACLs in Azure Storage file shares over SMB.
+> - *Storage File Data SMB Share Reader* allows read access in Azure Storage file shares over SMB.
+> - *Storage File Data SMB Share Contributor* allows read, write, and delete access in Azure Storage file shares over SMB.
+> - *Storage File Data SMB Share Elevated Contributor* allows read, write, delete, and modify Windows ACLs in Azure Storage file shares over SMB.
    
    - Under **Select** search paste your username **<inject key="AzureAdUserEmail" />** and select it.
    - Then click on **Save**.
