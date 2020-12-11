@@ -219,7 +219,7 @@ New-Item -Path "$LabFilesDirectory\FSLogix" -ItemType Directory |Out-Null
 
 7. In line 2, we have to replace the name of storage account with the **"NameofStorageAccount"** block.
 
-   ![ws name.](mediajvm24.png)
+   ![ws name.](media/jvm24.png)
 
 
 8. Go to **Lab Environment** tab and copy the **Storage Account Name**. In the script, replace **{NameofStorageAccount}** with the name you just copied. Make sure to remove the curly braces, then click on **Run** to execute the script.
@@ -310,7 +310,7 @@ New-Item -Path "$LabFilesDirectory\FSLogix" -ItemType Directory |Out-Null
 
 13. In line 2, we have to replace the name of storage account with the **"NameofStorageAccount"** block.
 
-   ![ws name.](mediajvm24.png)
+   ![ws name.](media/jvm24.png)
 
 14. Go to **Lab Environment** tab and copy the **Storage Account Name**. In the script, replace **{NameofStorageAccount}** with the name you just copied. Make sure to remove the curly braces, then click on **Run** to execute the script.
 
