@@ -209,6 +209,7 @@ New-Item -Path "$LabFilesDirectory\FSLogix" -ItemType Directory |Out-Null
    
     
 > **Note:** The above script will :
+>
 > i) Install FSLogix Profile Container application
 > 
 > ii) Configure the required registries
@@ -301,6 +302,7 @@ New-Item -Path "$LabFilesDirectory\FSLogix" -ItemType Directory |Out-Null
    
     
 > **Note:** The above script will :
+>
 > i) Install FSLogix Profile Container application
 > 
 > ii) Configure the required registries
