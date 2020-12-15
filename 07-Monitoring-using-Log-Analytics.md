@@ -40,8 +40,9 @@ Windows Virtual Desktop uses Azure Monitor for monitoring and alerts like many o
 
 ### **Task 2: Enable diagnostics for Host Pool**
 
-> **Note:** Due to a technical issue in Azure portal, you may find diagnostic settings pre-created in ***Host Pool, Application Group and Workspace***. For now, we will delete > it using following steps: 
-> 
+> **Note:** Due to a technical issue in Azure portal, you may find diagnostic settings pre-created in ***Host Pool, Application Group and Workspace***. For now, we will
+> delete it using following steps: 
+>
 > i) In diagnostics settings, locate the pre-created diagnostics setting and click on **Edit setting**.
 >    
 >    ![ws name.](media/jvm32.png)
